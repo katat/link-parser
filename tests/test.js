@@ -12,18 +12,19 @@ describe('API tests', function(){
     describe('get content of an url link', function(){
         it('should return content of the url link', function(done){
             request(app)
-                .get('/?url=http://www.google.com')
+                .post("/?url=http://www.google.com")
+                .send({expr:"https?://[-A-Za-z0-9+&@#/%?=~_()|!:,.;]*"})
                 .end(function(err, res){
-                    console.log(res.body);
+                    res.body[0].should.have.property('link');
                     done()
                 })
         })
 
         it('should return error when a invalid url link provided', function(done){
             request(app)
-                .get('/?url=http://test')
+                .post('/?url=http://test')
                 .end(function(err, res){
-                    console.log(res.body);
+                    res.body.should.have.property('errno').equal('ENOTFOUND')
                     done();
                 })
         })

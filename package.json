@@ -8,7 +8,8 @@
     "jsdom": "latest",
     "mocha": "latest",
     "supertest": "latest",
-    "should": "latest"
+    "should": "latest",
+    "async": "latest"
   },
   "author": "Kata"
 }
