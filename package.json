@@ -1,0 +1,14 @@
+{
+  "name": "link-parser",
+  "version": "0.0.1",
+  "description": "anchor link parser for an url",
+  "dependencies": {
+    "express": "latest",
+    "request": "latest",
+    "jsdom": "latest",
+    "mocha": "latest",
+    "supertest": "latest",
+    "should": "latest"
+  },
+  "author": "Kata"
+}
