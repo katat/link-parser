@@ -12,7 +12,7 @@ describe('API tests', function(){
     describe('get content of an url link', function(){
         it('should return content of the url link', function(done){
             request(app)
-                .get('/?url=http://www.yahoo.com')
+                .get('/?url=http://www.google.com')
                 .end(function(err, res){
                     console.log(res.body);
                     done()

@@ -7,7 +7,7 @@ var express = require('express');
 var request = require('request');
 var jsdom = require('jsdom');
 var app = express();
-var port = 4040;
+var port = 3030;
 
 app.use(express.bodyParser());
 
@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
         url:req.query.url,
         scripts:['http://code.jquery.com/jquery.js'],
         done:function (errors, window) {
-            if(errors != null){
+            if(errors != null && errors.length != 0){
                 res.send(errors);
                 return;
             }
@@ -25,13 +25,14 @@ app.get('/', function (req, res) {
             $('a').each(function (i, elm) {
                 links.push({link:$(elm).attr('href')});
             })
+            console.log(links);
 
             res.send(links);
         }
     })
 })
 
-//var server = app.listen(port);
+var server = app.listen(port);
 //
 //server.listen(3000);
 //
